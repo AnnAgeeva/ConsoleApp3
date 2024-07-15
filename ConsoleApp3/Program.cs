@@ -60,7 +60,7 @@ Console.WriteLine("Сумма карт у вас на руках: " + summ);
 Console.WriteLine("Введите целое число: ");
 int m = int.Parse(Console.ReadLine());
 bool simple = false;
-
+i = 2;
 
 while (i < m-1)
 {
@@ -103,19 +103,38 @@ int range = int.Parse(Console.ReadLine());
 Random rand  = new Random();
 
 int randomintresult  = rand.Next(0,range);
+
 do
 {
     Console.WriteLine("Введите число");
-    int usernumber = int.Parse(Console.ReadLine());
-    if (usernumber == randomintresult) 
+    string num = Console.ReadLine();
+    
+   if (num ==string.Empty)
+    {
+        Console.WriteLine("Было загадано число " + randomintresult);
+        break;
+    }
+
+    int usernumber;
+    usernumber = int.Parse(num);
+
+    if (usernumber == randomintresult)
     {
         Console.WriteLine("Верно!");
         break;
     }
+   
     else
     {
-        Console.WriteLine("Увы, вы ошиблись. Попробуйте еще раз");
+        if (usernumber > randomintresult)
+        {
+            Console.WriteLine("Увы, вы ошиблись. Загаданное число меньше. Попробуйте еще раз. Чтобы выйти, нажмите Enter");
+        }
+        else
+        {
+            Console.WriteLine("Увы, вы ошиблись. Загаданное число больше. Попробуйте еще раз. Чтобы выйти, нажмите Enter");
+        }
     }
-
+    
 }
 while (1==1);
